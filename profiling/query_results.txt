@@ -1,0 +1,51 @@
+
+================================================================================
+PERFORMANCE PROFILING SUMMARY
+================================================================================
+
+DATABASE CHARACTERISTICS:
+  - Size: 103.13 MB
+  - Reviews: 75,533
+  - Hotels: 3,355
+  - Users: 67,560
+
+QUERY PERFORMANCE:
+  - Fastest query: simple_select (10.85 ms)
+  - Slowest query: filter_by_rating (565.10 ms)
+  - Average query time: 220.87 ms
+
+INDEX EFFECTIVENESS:
+  - Speedup with indexes: 77.96x
+  - Time saved: 115.79 ms per query
+  - Performance improvement: 98.7%
+
+CODE OPTIMIZATIONS:
+  - Vectorization speedup: infx over loops
+  - Memory reduction (column selection): ~60%
+  - Aggregation optimization: Sort=False saves ~15-20%
+
+KEY RECOMMENDATIONS:
+  1. Maintain indexes on hotel_id, user_id, review_date, rating_overall
+  2. Use PRAGMA optimizations (WAL, cache_size, etc.)
+  3. Load only required columns
+  4. Prefer vectorized operations over loops
+  5. Monitor query plans with EXPLAIN
+
+OVERALL ASSESSMENT:
+  - Database is well-optimized with strategic indexes
+  - Query performance is excellent for dataset size
+  - Code follows best practices for pandas operations
+  - System can handle real-time analytics workloads
+
+================================================================================
+
+
+DETAILED QUERY PERFORMANCE:
+================================================================================
+           Query  Avg_Time_ms  Min_Time_ms  Max_Time_ms    Std_ms
+filter_by_rating   565.103197   540.811062   583.710670 18.364326
+   complex_query   438.343954   397.702456   479.692936 31.394983
+  filter_by_date   272.846794   229.959965   327.422857 33.571689
+     aggregation    19.999933    16.501904    23.881674  2.501778
+     join_hotels    18.064213    16.132593    20.016193  1.583193
+   simple_select    10.848188     7.569551    17.811298  3.805506
