@@ -6,9 +6,9 @@ CODE PERFORMANCE PROFILING RESULTS
 DATA LOADING PERFORMANCE:
 ================================================================================
                     Approach  Avg_Time_s  Memory_MB
-         Basic (all columns)    0.139007  13.807711
-             Chunked loading    0.105144  13.807711
-Optimized (selected columns)    0.032872   0.715382
+         Basic (all columns)    0.699394  14.352407
+             Chunked loading    0.709072  14.352407
+Optimized (selected columns)    0.564873   0.715382
 
 Key Findings:
   - Selecting specific columns reduces memory by ~60%
@@ -18,9 +18,9 @@ Key Findings:
 AGGREGATION PERFORMANCE:
 ================================================================================
            Approach  Avg_Time_ms
-  Basic aggregation     1.678785
-Optimized (no sort)     3.505786
- Multiple functions     6.010373
+  Basic aggregation     4.224539
+Optimized (no sort)     4.309177
+ Multiple functions     9.819587
 
 Key Findings:
   - sort=False in groupby improves performance by 15-20%
@@ -29,9 +29,9 @@ Key Findings:
 
 VECTORIZATION IMPACT:
 ================================================================================
-  Loop-based computation:     306.73 ms
-  Vectorized computation:     0.00 ms
-  Speedup:                    infx
+  Loop-based computation:     235.87 ms
+  Vectorized computation:     0.72 ms
+  Speedup:                    327.5x
 
 Best Practices:
   1. Always use vectorized operations instead of iterrows()
@@ -40,9 +40,9 @@ Best Practices:
 
 MEMORY OPTIMIZATION:
 ================================================================================
-  Full DataFrame memory:      13.81 MB
+  Full DataFrame memory:      14.35 MB
   Optimized DataFrame memory: 0.72 MB
-  Memory saved:               13.09 MB (94.8%)
+  Memory saved:               13.64 MB (95.0%)
 
 Recommendations:
   - Use category dtype for repeated string values
@@ -51,5 +51,5 @@ Recommendations:
   - Delete intermediate DataFrames explicitly
 
 ================================================================================
-Generated: 2026-02-10 14:14:10
+Generated: 2026-02-15 13:08:37
 ================================================================================

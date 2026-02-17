@@ -4,23 +4,23 @@ PERFORMANCE PROFILING SUMMARY
 ================================================================================
 
 DATABASE CHARACTERISTICS:
-  - Size: 103.13 MB
-  - Reviews: 75,533
-  - Hotels: 3,355
-  - Users: 67,560
+  - Size: 197.18 MB
+  - Reviews: 143,440
+  - Hotels: 3,558
+  - Users: 123,561
 
 QUERY PERFORMANCE:
-  - Fastest query: simple_select (10.85 ms)
-  - Slowest query: filter_by_rating (565.10 ms)
-  - Average query time: 220.87 ms
+  - Fastest query: simple_select (28.19 ms)
+  - Slowest query: complex_query (21263.94 ms)
+  - Average query time: 6361.34 ms
 
 INDEX EFFECTIVENESS:
-  - Speedup with indexes: 77.96x
-  - Time saved: 115.79 ms per query
-  - Performance improvement: 98.7%
+  - Speedup with indexes: 706.06x
+  - Time saved: 5329.53 ms per query
+  - Performance improvement: 99.9%
 
 CODE OPTIMIZATIONS:
-  - Vectorization speedup: infx over loops
+  - Vectorization speedup: 327.5x over loops
   - Memory reduction (column selection): ~60%
   - Aggregation optimization: Sort=False saves ~15-20%
 
@@ -42,10 +42,10 @@ OVERALL ASSESSMENT:
 
 DETAILED QUERY PERFORMANCE:
 ================================================================================
-           Query  Avg_Time_ms  Min_Time_ms  Max_Time_ms    Std_ms
-filter_by_rating   565.103197   540.811062   583.710670 18.364326
-   complex_query   438.343954   397.702456   479.692936 31.394983
-  filter_by_date   272.846794   229.959965   327.422857 33.571689
-     aggregation    19.999933    16.501904    23.881674  2.501778
-     join_hotels    18.064213    16.132593    20.016193  1.583193
-   simple_select    10.848188     7.569551    17.811298  3.805506
+           Query  Avg_Time_ms  Min_Time_ms  Max_Time_ms      Std_ms
+   complex_query 21263.942671 18637.057781 25463.169575 2307.815150
+filter_by_rating 13436.557484  8115.171194 16575.446606 3296.481233
+  filter_by_date  3192.454720  2760.416269  4233.935118  552.453819
+     join_hotels   131.605387   123.074055   139.413118    5.363236
+     aggregation   115.313244   106.904030   124.509573    6.651785
+   simple_select    28.185749    10.257721    94.747543   33.291688
